@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 
+import java.time.Duration;
+
 public class BaseTests {
 
     protected WebDriver driver;
@@ -18,7 +20,8 @@ public class BaseTests {
     @BeforeClass
     public void setUp(){
         driver = new EdgeDriver();
-
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
     }
