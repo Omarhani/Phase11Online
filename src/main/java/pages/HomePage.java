@@ -20,6 +20,7 @@ public class HomePage {
 
     private final By statusCodeLink = By.linkText("Status Codes");
     private final By dynamicLoadingLink = By.linkText("Dynamic Loading");
+    private final By dropDownLink = By.linkText("Dropdown");
 
     // actions
 
@@ -46,6 +47,11 @@ public class HomePage {
     public DynamicLoadingPage clickOnDynamicLoadingLink(){
         driver.findElement(dynamicLoadingLink).click();
         return new DynamicLoadingPage(driver);
+    }
+
+    public DropDownPage clickOnDropDownLink(){
+        driver.findElement(dropDownLink).click();
+        return new DropDownPage(driver);
     }
 
 
