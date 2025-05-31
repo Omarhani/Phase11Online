@@ -19,6 +19,7 @@ public class HomePage {
     private final By forgetPasswordLink = By.linkText("Forgot Password");
 
     private final By statusCodeLink = By.linkText("Status Codes");
+    private final By dynamicLoadingLink = By.linkText("Dynamic Loading");
 
     // actions
 
@@ -40,6 +41,11 @@ public class HomePage {
     public StatusCodePage clickOnStatusCodeLink(){
         driver.findElement(statusCodeLink).click();
         return new StatusCodePage(driver);
+    }
+
+    public DynamicLoadingPage clickOnDynamicLoadingLink(){
+        driver.findElement(dynamicLoadingLink).click();
+        return new DynamicLoadingPage(driver);
     }
 
 
