@@ -3,6 +3,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
 
@@ -22,36 +25,46 @@ public class HomePage {
     private final By dynamicLoadingLink = By.linkText("Dynamic Loading");
     private final By dropDownLink = By.linkText("Dropdown");
 
+    private final By jsAlertLink = By.linkText("JavaScript Alerts");
+
     // actions
 
     public LoginPage clickOnFormAuthenticationLink(){
-        driver.findElement(formAuthenticationLink).click();
+        clickOnLink(forgetPasswordLink);
         return new LoginPage(driver);
     }
 
     public CheckBoxPage clickOnCheckBoxLink(){
-        driver.findElement(checkBoxLink).click();
+        clickOnLink(checkBoxLink);
         return new CheckBoxPage(driver);
     }
 
     public ForgetPasswordPage clickOnForgetPasswordLink(){
-        driver.findElement(forgetPasswordLink).click();
+        clickOnLink(forgetPasswordLink);
         return new ForgetPasswordPage(driver);
     }
 
     public StatusCodePage clickOnStatusCodeLink(){
-        driver.findElement(statusCodeLink).click();
+        clickOnLink(statusCodeLink);
         return new StatusCodePage(driver);
     }
 
     public DynamicLoadingPage clickOnDynamicLoadingLink(){
-        driver.findElement(dynamicLoadingLink).click();
+        clickOnLink(dynamicLoadingLink);
         return new DynamicLoadingPage(driver);
     }
 
     public DropDownPage clickOnDropDownLink(){
-        driver.findElement(dropDownLink).click();
+        clickOnLink(dropDownLink);
         return new DropDownPage(driver);
+    }
+
+    public JSAlertPage clickOnJsAlertLink(){
+        clickOnLink(jsAlertLink);
+        return new JSAlertPage(driver);
+    }
+    private void clickOnLink(By locator){
+        driver.findElement(locator).click();
     }
 
 
