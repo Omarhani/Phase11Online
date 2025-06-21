@@ -17,4 +17,25 @@ public class AlertTests extends BaseTests {
         String actualResult = jsAlertPage.getValidation();
         assertEquals(actualResult, expectedResult);
     }
+
+    @Test
+    public void testJSDismissAlert(){
+        JSAlertPage jsAlertPage = homePage.clickOnJsAlertLink();
+        jsAlertPage.clickOnJsConfirmButton();
+        jsAlertPage.dismissAlert();
+        String expectedResult = "You clicked: Cancel";
+        String actualResult = jsAlertPage.getValidation();
+        assertEquals(actualResult, expectedResult);
+    }
+
+    @Test
+    public void testJSSendKeysAlert(){
+        JSAlertPage jsAlertPage = homePage.clickOnJsAlertLink();
+        jsAlertPage.clickOnJsPromptButton();
+        jsAlertPage.sendKeysAlert("Hello");
+        jsAlertPage.acceptAlert();
+        String expectedResult = "You entered: Hello";
+        String actualResult = jsAlertPage.getValidation();
+        assertEquals(actualResult, expectedResult);
+    }
 }
