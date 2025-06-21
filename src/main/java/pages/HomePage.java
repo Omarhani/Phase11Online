@@ -3,9 +3,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage {
 
@@ -27,10 +24,12 @@ public class HomePage {
 
     private final By jsAlertLink = By.linkText("JavaScript Alerts");
 
+    private final By hoverLink = By.linkText("Hovers");
+
     // actions
 
     public LoginPage clickOnFormAuthenticationLink(){
-        clickOnLink(forgetPasswordLink);
+        clickOnLink(formAuthenticationLink);
         return new LoginPage(driver);
     }
 
@@ -62,6 +61,11 @@ public class HomePage {
     public JSAlertPage clickOnJsAlertLink(){
         clickOnLink(jsAlertLink);
         return new JSAlertPage(driver);
+    }
+
+    public HoverPage clickOnHoverLink(){
+        clickOnLink(hoverLink);
+        return new HoverPage(driver);
     }
     private void clickOnLink(By locator){
         driver.findElement(locator).click();
